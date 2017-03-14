@@ -25,3 +25,10 @@ export let addTodo = (text) => {
     text
   }
 }
+
+export let addTodos = (todos) => {
+  return {
+    type: 'ADD_TODOS',
+    todos
+  };
+}
