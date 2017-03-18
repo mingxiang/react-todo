@@ -7,7 +7,6 @@ import TodoAPI from 'TodoAPI';
 import * as actions from 'actions';
 const store = require('configureStore').configure();;
 
-
 store.subscribe(() => {
   let state = store.getState();
   console.log('New state', state);
