@@ -4,9 +4,10 @@
   "description": "Simple react app",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test karma start",
+    "test": "set NODE_ENV=test&& karma start",
     "build": "webpack",
-    "start": "npm run build && node server.js"
+    "start": "npm run build && node server.js",
+    "startDev": "set NODE_ENV=&& npm run start"
   },
   "author": "Tham Ming Xiang",
   "license": "MIT",

@@ -1,6 +1,6 @@
 import expect from 'expect';
 import df from 'deep-freeze-strict';
-import {searchTextReducer, showCompletedReducer, todosReducer} from 'reducers';
+import {searchTextReducer, showCompletedReducer, todosReducer, authReducer} from 'reducers';
 
 describe('Reducers', () => {
   describe('searchTextReducer', () => {
@@ -80,4 +80,27 @@ describe('Reducers', () => {
       expect(res[0]).toEqual(todos[0]);
     })
   })
+
+  describe('authReducer', () => {
+    it('should store uid on LOGIN', () => {
+      const action = {
+        type: 'LOGIN',
+        uid: 'abc123'
+      }, res = authReducer(undefined, df(action));
+
+      expect(res).toEqual({
+        uid: action.uid
+      });
+    });
+
+    it('should wipe auth on LOGOUT', () => {
+      const authData = {
+        uid: '123abc'
+      }, action = {
+        type: 'LOGOUT'
+      }, res = authReducer(df(authData), df(action));
+
+      expect(res).toEqual({});
+    });
+  });
 });
